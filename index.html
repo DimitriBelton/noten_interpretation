@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Noteninterpretation</title>
+<link rel="stylesheet" href="pfad/zu/deiner/indexstyles.css">
+<script>
+function auswerten(punktzahl) {
+  punktzahl = parseInt(punktzahl);
+  let ergebnisText = '';
+  if (punktzahl > 90) {
+    ergebnisText = "sehr gut";
+  } else if (punktzahl > 80) {
+    ergebnisText = "gut";
+  } else if (punktzahl > 70) {
+    ergebnisText = "befriedigend";
+  } else if (punktzahl > 60) {
+    ergebnisText = "ausreichend";
+  } else {
+    ergebnisText = "nicht bestanden";
+  }
+  console.log(ergebnisText);
+  document.getElementById("ergebnis").textContent = ergebnisText;
+}
+</script>
+</head>
+<body>
+<header>
+  <div id="branding">
+    <h1><span class="highlight">Noten</span> Interpretation</h1>
+  </div>
+  <nav>
+    <ul>
+      <li class="current"><a href="index.html">Startseite</a></li>
+    </ul>
+  </nav>
+</header>
+<div class="container">
+  <section id="main">
+    <p>Gib deine Punktzahl ein:</p>
+    <input type="number" id="punktzahl" min="0" max="100">
+    <button onclick="auswerten(document.getElementById('punktzahl').value)">Auswerten</button>
+    <p id="ergebnis"></p>
+  </section>
+</div>
+</body>
+</html>
